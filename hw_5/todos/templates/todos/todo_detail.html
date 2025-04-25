@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Детали задачи{% endblock %}
+
+{% block content %}
+<h2>{{ todo.title }}</h2>
+<p>{{ todo.description }}</p>
+<p><strong>Срок сдачи:</strong> {{ todo.due_date }}</p>
+<p><strong>Статус:</strong> {% if todo.status %}✅ Выполнено{% else %}🕒 В процессе{% endif %}</p>
+
+<a href="{% url 'todo_delete' todo.id %}" class="btn btn-danger">Удалить</a>
+<a href="{% url 'todo_list' %}" class="btn btn-secondary">Назад к списку</a>
+{% endblock %}

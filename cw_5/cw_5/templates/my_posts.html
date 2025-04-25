@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Мои посты</h2>
+<ul>
+    {% for post in posts %}
+        <li>
+            <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+            | <a href="{% url 'delete_post' post.id %}">Удалить</a>
+        </li>
+    {% empty %}
+        <li>У вас пока нет постов.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
